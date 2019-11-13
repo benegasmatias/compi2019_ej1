@@ -332,7 +332,7 @@ namespace at.jku.ssw.cc
             Code.seleccLaProdEnLaGram(3);//3.MethodDeclsOpc = . | MethodDecl Meth
             Parser.MessageBoxCon3Preg();
             // si "la" pertenece a First(MethodDec) => sólo deben haber metodos
-            while ((la == Token.IDENT || la == Token.VOID) && la != Token.EOF)
+            while ((la == Token.IDENT || la == Token.VOID) && la != Token.EOF) //procese todos los metodos
             {
                 MethodDecl(methodDeclsOpc);  //void Main() int x,i; {val = new Table;....}
             }
@@ -652,7 +652,7 @@ namespace at.jku.ssw.cc
                         ntype.ExpandAll();
                         MessageBoxCon3Preg();
                     }
-                methodDecl.Nodes.Add("ident");
+                methodDecl.Nodes.Add("ident");// iden del arbol
                 MessageBoxCon3Preg();
                 Code.Colorear("token");
                 Check(Token.IDENT);  //Main por ej.  //token = Main, laToken = "("

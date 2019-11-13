@@ -345,12 +345,13 @@ public class Scanner {
     }
     static void ReadName(Token t)
     {
-        while ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch == '_')
+        while ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch == '_' || (ch>='0' && ch<='9'))
         {
             t.str = t.str+ch;
             NextCh();
         }
-        if (esPalabraClave(t.str))
+
+             if (esPalabraClave(t.str))
             switch (t.str)
             {
                 case "break":
@@ -393,7 +394,11 @@ public class Scanner {
             }
         else
         {
-            t.kind = Token.IDENT;
+                int i = t.str.Length;
+                int j = t.str.LastIndexOf('_');
+                if (i-1== j)
+                    Parser.Errors.Error("no es posible usar _ al final de un identificador");
+                else t.kind = Token.IDENT;
         }
         
     }
