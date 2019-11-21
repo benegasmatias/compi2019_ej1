@@ -393,7 +393,7 @@ public class Scanner {
 
             }
         else
-        {
+        {// cambio hecho por el gurpo de Benegas y Calderon
                 int i = t.str.Length;
                 int j = t.str.LastIndexOf('_');
                 if (i-1== j)
